@@ -1,4 +1,4 @@
-import imaplib
+from imap_tools import MailBox
 from src.resources import env
 
 from src.logging.logging import printToLog
@@ -9,17 +9,14 @@ logStringError = LogMessage(group=LogGroup.IMAP, type=LogType.ERROR)
 
 class IMAPClient:
     
-    client: imaplib.IMAP4_SSL
+    client: MailBox
     
     def __init__(self):
         pass
     
     def connect(self):
         try:
-            self.client = imaplib.IMAP4_SSL(
-                host= env.IMAP_SERVER,
-                port= env.IMAP_PORT
-            )
+            self.client = MailBox(host= env.IMAP_SERVER, port=env.IMAP_PORT)
             logStringInfo.message = f"Connected to {env.IMAP_SERVER}:{env.IMAP_PORT}"
             printToLog(logStringInfo)
         except:
@@ -36,7 +33,8 @@ class IMAPClient:
             printToLog(logStringError)
             
             
-client = IMAPClient()
-client.connect()
-client.login()
-print(client.client.select("test"))
+# client = IMAPClient()
+# client.connect()
+# client.login()
+# print(client.client.folder.set("INBOX"))
+# print(",".join(msg.flags for msg in client.client.fetch()))
