@@ -33,7 +33,13 @@ class IMAPClientCore:
             logStringInfo.message = f"Error while login"
             printToLog(logStringError)
             
-
+    def get_folders(self) -> list[str]:
+        return list(folder for folder in self.client.folder.list())
+    
+    def get_current_folder(self) -> str:
+        return self.client.folder.get()
+    
 # client = IMAPClientCore()
 # print("\n".join(f"{folder.name}" for folder in client.client.folder.list()))
-# print(",".join(msg.flags for msg in client.client.fetch()))
+
+# print(IMAPClientCore().get_folders())

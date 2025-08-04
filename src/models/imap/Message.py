@@ -2,6 +2,7 @@ from dataclasses import dataclass
 
 @dataclass
 class Message:
+    uid: str
     subject: str = ""
     body: str = ""
     tags: list[str] = None
