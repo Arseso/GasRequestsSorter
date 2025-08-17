@@ -34,7 +34,7 @@ class IMAPClientCore:
             printToLog(logStringError)
             
     def get_folders(self) -> list[str]:
-        return list(folder for folder in self.client.folder.list())
+        return list(folder.name for folder in self.client.folder.list())
     
     def get_current_folder(self) -> str:
         return self.client.folder.get()
