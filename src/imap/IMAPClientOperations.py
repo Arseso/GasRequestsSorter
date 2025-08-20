@@ -38,17 +38,17 @@ class IMAPClientOperations(IMAPClientCore):
         logStringInfo.message = f"Message uid {msg_uid} deleted from folder [{self.get_current_folder()}]"
         printToLog(logStringInfo)
 
-client = IMAPClientOperations()
-client.set_folder('INBOX')
-# client.set_folder('test3')
+# client = IMAPClientOperations()
+# client.set_folder('INBOX')
+# # client.set_folder('test3')
 
-# client.copy_msg('3', 'test3')
+# # client.copy_msg('3', 'test3')
 
-msgs = client.get_folder_messages(count=1)
-print(msgs[0].attachments)
-print(msgs[0].flags)
-print(msgs[0].headers)
-print(msgs[0].reply_to)
+# msgs = client.get_folder_messages(count=1)
+# print(msgs[0].attachments)
+# print(msgs[0].flags)
+# print(msgs[0].headers)
+# print(msgs[0].reply_to)
 # print("\n".join(str(msg.html) for msg in msgs))
 # client.del_msg('5')
 
